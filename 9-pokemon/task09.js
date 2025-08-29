@@ -5,5 +5,14 @@ request.send();
 
 request.addEventListener('load', function() {
     const { abilities } = JSON.parse(this.responseText);
-    console.log(abilities[0].ability.name);
+    const url = abilities[0].ability.url;
+
+    const request2 = new XMLHttpRequest();
+    request2.open('GET', url);
+    request2.send();
+
+    request2.addEventListener('load', function() {
+        const { effect_entries } = JSON.parse(this.response);
+        console.log(effect_entries[0].effect);
+    })
 });
