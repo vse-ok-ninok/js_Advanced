@@ -13,7 +13,6 @@
 function accesIs(userBirthday) {
     const currentTime = new Date();
     const timeBirthday = new Date(userBirthday);
-
     const date = currentTime.setFullYear(currentTime.getFullYear() - 14);
     if (date < (timeBirthday.getTime() + (1000*60*60*24))) {
         return false;
